@@ -1,0 +1,40 @@
+group 'com.zhuaoyuan'
+version '0.0.1-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'base'
+
+
+buildscript {
+
+	repositories {
+		jcenter()
+
+	}
+	dependencies {
+
+	}
+}
+
+subprojects {
+	apply plugin: 'java'
+	apply plugin: 'idea'
+	apply plugin: 'base'
+
+	sourceCompatibility = 1.8
+	targetCompatibility = 1.8
+
+	tasks.withType(JavaCompile) {
+		options.encoding = "UTF-8"
+	}
+
+
+	configurations.all {
+		resolutionStrategy {
+			cacheChangingModulesFor 0, 'seconds'
+		}
+	}
+
+}
+
